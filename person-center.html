@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="edge" />
+	<title>万卷学术专题数据库</title>
+	<link rel="stylesheet" href="static/css/base.css">
+	<link rel="stylesheet" href="static/css/index.css">
+	<link rel="stylesheet" href="static/css/pagination.css">
+	<script src="static/js/jquery-1.11.0.min.js"></script>
+	<script src="static/js/jquery.pagination.js"></script>
+	<script src="static/datePicker/WdatePicker.js"></script>
+	<script src="static/js/vue.min.js"></script>
+	<script src="static/js/vue-router.js"></script>
+</head>
+<body>
+	<div id="searchResult" class="search-result">
+		<div class="result-header">
+			<div class="login-btn">
+				<a >登录</a>
+			</div>
+			<div class="rl-hd-contain clearfix">
+				<img src="static/img/logo1.png" alt="">
+				<div class="rst-search">
+   					<div class="search" >
+						<div class="search-text">
+							<div class="search-type">
+								<ul class="jjj">
+									<li >
+										<a >全部</a>
+									</li>
+									<li >
+										<a >全部</a>
+									</li>
+									<li >
+										<a >全部</a>
+									</li>
+									<li >
+										<a >全部</a>
+									</li>
+									<li >
+										<a >全部</a>
+									</li>
+								</ul>
+							</div>
+							<span class="type-more">>></span>
+							<div class="hight-search"><a>高级检索</a></div>
+							<div class="search-inpt clearfix">
+								<input class="fl" type="text">
+								<button class="fr" type="button">搜索</button>
+								<select class="menu-down">
+									<option selected="selected">全文</option>
+									<option >标题</option>
+									<option>作者</option>
+									<option>关键词</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main-result clearfix">
+			<div class="ps">
+				当前位置：<a>首页</a><span> > </span><a>个人中心</a>
+			</div>
+			<div class="person-left fl">
+				<div><span>个人中心</span></div>
+				<ul>
+					<li><a class="active">我的收藏</a></li>
+					<li><a>下载记录</a></li>
+					<li><a>浏览记录</a></li>
+				</ul>
+			</div>
+			<div class="person-right fl">
+				<div class="serach-result">
+					<span>我的收藏</span>
+					<div class="second-search">
+						<input class="fl" type="text" placeholder="输入关键词"> <button class="fl">检索</button>
+					</div>
+				</div>
+				<div class="person-list">
+					<table class="" >	  	
+					  	<thead>
+						    <tr>
+							    <th >编号</th>
+							    <th>标题</th>
+							    <th>类型</th>
+							    <th>来源</th>
+							    <th>收藏时间</th>
+							    <th>操作</th>
+						    </tr> 
+					  	</thead>
+					  	<tbody>
+						    <tr>
+						      	<td>22</td>
+						      	<td>人生</td>
+						      	<td>图片</td>
+						      	<td>知网</td>
+						      	<td>2016-11-29</td>
+						      	<td><a>删除</a></td>
+						    </tr>
+						    <tr>
+						      	<td>22</td>
+						      	<td>人生</td>
+						      	<td>图片</td>
+						      	<td>知网</td>
+						      	<td>2016-11-29</td>
+						      	<td><a>删除</a></td>
+						    </tr>
+						    <tr>
+						      	<td>22</td>
+						      	<td>人生</td>
+						      	<td>图片</td>
+						      	<td>知网</td>
+						      	<td>2016-11-29</td>
+						      	<td><a>删除</a></td>
+						    </tr>
+						    <tr>
+						      	<td>22</td>
+						      	<td>人生</td>
+						      	<td>图片</td>
+						      	<td>知网</td>
+						      	<td>2016-11-29</td>
+						      	<td><a>删除</a></td>
+						    </tr>
+					  	</tbody>
+					</table>
+					<div>
+					    <ul class="M-box" id="page1"></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	
+	$('#page1').pagination({
+	    pageCount:50,
+	    totalData: 120,
+	    showData: 6,
+	     count: 4,
+	    jump:true,
+	    coping:true,
+	    homePage:'首页',
+	    endPage:'末页',
+	    prevContent:'上页',
+	    nextContent:'下页',
+	    callback: function(index){
+	    	console.log(index.getCurrent())
+	    }
+	});
+	$('.person-left ul li a').bind('click',function(e){
+		$('.person-left ul li a').removeClass('active');
+		$(e.target).addClass('active');
+	});
+</script>
+</html>
